@@ -1,0 +1,324 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000;
+    color: white;
+    display: flex;  /* Activar flexbox */
+    justify-content: flex-end;  /* Alinear elementos hacia la derecha */
+    align-items: center;  /* Centrar elementos verticalmente */
+    padding: 12px 40px;  /* Reducir el padding derecho a 10px */
+    height: 70px;
+    background: linear-gradient(0deg, transparent, #000000 70%), #25284b;
+    z-index: 1;
+    position: relative;
+}
+
+#logo img {
+    max-height: 60px;
+    transition: transform 1s; /* Añadir transición suave */
+}
+
+#logo img:hover {
+    transform: scale(1.1); /* Aumentar el tamaño en un 10% */
+}
+
+nav {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80px;  /* Puedes ajustar este valor según tus necesidades */
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;  /* Añadir más padding para que parezcan botones */
+    border: 0px solid white;  /* Borde blanco alrededor del texto */
+    border-radius: 5%;  /* Bordes redondeados */
+    position: relative; /* Esto es necesario para posicionar la línea correctamente */
+    transition: color 0.3s; /* Transición suave para el cambio de color */
+
+}
+
+nav ul li a:hover {
+    color: #003366; /* Color azul oscuro */
+}
+
+nav ul li a::before {
+    content: ""; /* Esto es necesario para que el pseudo-elemento se muestre */
+    position: absolute;
+    bottom: 0; /* Posiciona la línea en la parte inferior del enlace */
+    left: 0;
+    right: 0;
+    height: 2px; /* Grosor de la línea */
+    background-color: #003366; /* Color azul oscuro para la línea */
+    transform: scaleX(0); /* Inicialmente, la línea no se muestra */
+    transform-origin: right; /* La línea crecerá desde la derecha hacia la izquierda */
+    transition: transform 0.3s; /* Transición suave para el efecto de dibujo de la línea */
+}
+nav ul li a:hover::before {
+    transform: scaleX(1); /* Al pasar el cursor, la línea se muestra completamente */
+}
+
+nav, header, ul { /* O cualquier otro contenedor del botón */
+    overflow: visible; /* Asegúrate de que no esté establecido en hidden */
+}
+
+
+.info {
+    max-width: 40%;  /* Limita el ancho al 25% del contenedor padre */
+    /* ... otros estilos ... */
+}
+
+.panel {
+    position: relative;
+    overflow: hidden; 
+    transition: background-image 1s ease; /* Transición en el cambio de imagen de fondo */
+    background-image: url('https://drive.google.com/u/0/uc?id=1xeo2J9-W7SXUIa8WPWELB2n9cifW7UwU&export=download');
+    background-size: cover;
+    background-position: left;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    justify-content: flex-start;
+}
+
+.panel::before, .panel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;  /* Hereda la imagen de fondo del panel */
+    z-index: -1;  /* Coloca el fondo detrás del contenido real del panel */
+    animation: glitchEffect 1.5s infinite;
+}
+
+.panel::after {
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    animation-delay: 1s;
+}
+
+@keyframes glitchEffect {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-5px, 3px);
+    }
+    40% {
+        transform: translate(5px, -3px);
+    }
+    60% {
+        transform: translate(-5px, 2px);
+    }
+    80% {
+        transform: translate(5px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* ... (resto de tu código) ... */
+
+
+
+
+
+.info h2 {
+    color: rgb(255, 255, 255);
+    font-size: 2em; /* Tamaño del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.info {
+    font-family: 'Times New Roman', serif; /* Cambiar a una fuente serif */
+    color: #333; /* Color de texto oscuro */
+}
+
+.info h2 {
+    font-size: 2.5em; /* Ajustar el tamaño del título */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    line-height: 1.2; /* Espaciado entre líneas */
+}
+
+.info p {
+    font-size: 1.2em; /* Ajustar el tamaño del texto de descripción */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+.info p {
+    color: rgb(255, 255, 255);
+    font-size: 1.2em; /* Tamaño del texto de descripción */
+    margin-bottom: 20px; /* Espacio debajo de la descripción */
+}
+
+.info button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #680000;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.info button:hover {
+    background-color: #333;
+}
+
+
+.theme-icons {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.theme-icons i {
+    font-size: 24px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.theme-icons i:hover {
+    color: #ddd;
+}
+
+@keyframes rotateEarth {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#rotatingEarth {
+    width: 50px; /* Ajusta según el tamaño que desees */
+    height: 50px; /* Ajusta según el tamaño que desees */
+    animation: rotateEarth 20s infinite linear; /* 20s es la duración de una rotación completa */
+}
+
+#rotatingEarth {
+    margin-left: 20px; /* Ajusta este valor según cuánto quieras mover la Tierra a la derecha */
+}
+
+#loginBtn {
+    margin: 0;
+    padding: 10px 10px;
+    border: none;
+    background-color: #1b4877; /* Color azul como ejemplo */
+    color: white;
+    font-size: 1em;
+    line-height: 1.5;
+    overflow: visible;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#loginBtn:hover {
+    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el cursor */
+    color: white; /* Color de texto blanco al pasar el cursor */
+}
+
+
+.scroll-downs {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.mousey {
+    width: 40px;
+    height: 70px;
+    border: 2px solid rgb(73, 30, 153);
+    border-radius: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.scroller {
+    width: 8px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(85, 40, 168);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollAnim 1.5s infinite;
+}
+
+@keyframes scrollAnim {
+    0%, 20%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(15px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-downs {
+    /* ... tus estilos actuales ... */
+    opacity: 0;  /* Ocultar inicialmente */
+    transition: opacity 0.5s, transform 0.5s;  /* Transición suave */
+}
+
+
+.second-panel {
+    /* ... otras propiedades ... */
+    background-color: rgb(167, 147, 175); /* Color de fondo para el segundo panel */
+}
+
+.partners {
+    display: flex;
+    justify-content: space-around; /* Distribuye las imágenes equitativamente a lo largo del ancho del contenedor */
+    flex-wrap: wrap; /* Permite que las imágenes se envuelvan al siguiente renglón si no hay espacio suficiente */
+    gap: 20px; /* Espacio entre las imágenes */
+}
+
+.partners img {
+    width: 200px; /* Ajusta este valor según el tamaño deseado para las imágenes */
+    height: 200px;
+    object-fit: contain; /* Asegura que las imágenes se muestren en su totalidad sin recortarse */
+}
